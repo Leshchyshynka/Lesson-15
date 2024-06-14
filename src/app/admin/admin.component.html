@@ -1,0 +1,33 @@
+<section class="admin">
+  <div class="admin__side">
+    <div class="admin__side__big">
+      <ul>
+
+        <li [routerLink]="[ '/admin/category' ]"
+          routerLinkActive="route-active">Категорії </li>
+        <li [routerLink]="[ '/admin/product' ]"
+          routerLinkActive="route-active">Товари</li>
+        <li  [routerLink]="[ '/admin/order' ]"
+          routerLinkActive="route-active">Замовлення</li>
+          
+      </ul>
+    </div>
+
+    <div class="admin__side__mobile">
+      <mat-form-field appearance="outline">
+        <mat-label>Choose ...</mat-label>
+          <mat-select >
+            <mat-option value="category" [routerLink]="[ '/admin/category' ]">Категорії</mat-option>
+            <mat-option value="product"  [routerLink]="[ '/admin/product' ]">Товари</mat-option>
+            <mat-option value="order"   [routerLink]="[ '/admin/order' ]">Замовлення</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="logOut()">Вихід</button>
+  </div>
+  <div class="admin__main">
+    <router-outlet></router-outlet>
+  </div>
+</section>

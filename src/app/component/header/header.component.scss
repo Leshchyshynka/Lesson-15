@@ -1,0 +1,129 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/media";
+@import "../../shared/styles/mixins";
+
+.header {
+  width: 100%;
+  min-width: 320px;
+  height: 80px;
+  padding: 15px 10px 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  @include dispay(flex, space-between, nowrap);
+  background-image: url(../../../assets/bg-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include respond(Medium) {
+    height: 70px;
+  }
+  @include respond(Small) {
+    height: 60px;
+  }
+
+  &__logo {
+    width: 100px;
+    background-image: url(../../../assets/logo_one-1.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    @include respond(Medium) {
+      width: 90px;
+    }
+    @include respond(Small) {
+      width: 70px;
+    }
+    @include respond(Xsmall) {
+      width: 60px;
+    }
+  }
+
+  &__menu {
+    width: 350px;
+    @include dispay(flex, space-around, nowrap);
+
+    @include respond(Large) {
+      width: 65px;
+    }
+    &__nav {
+      position: static;
+      background-color: transparent;
+      border: none;
+      color: $white;
+      padding-bottom: 5px;
+      &:hover span{
+        color:$main
+      }
+      
+      &:hover .header__dropdown {
+        display: block;
+        @include dispay(flex,  flex-start, wrap);
+      }
+    
+    }
+    &__thai {
+      @extend .header__menu__nav;
+    
+    }
+  }
+
+  &__review {
+    width: 200px;
+    height: 50px;
+    background-color: $darkGrey;
+    border: 3px solid $darkGrey;
+    border-radius: 8px;
+
+    a {
+      text-decoration: none;
+      color: $white;
+    }
+
+    &:hover {
+      background-color: $main;
+      border: 3px solid $main;
+    }
+  }
+
+  &__menu-1 {
+    width: 250px;
+    @include dispay(flex, space-between, nowrap);
+
+    @include respond(Medium) {
+      width: 200px;
+    }
+  }
+
+  .hide {
+    @include respond(Large) {
+      display: none;
+    }
+  }
+
+  span {
+    color: $white;
+  }
+  &__dropdown {
+    @extend %dropdown;
+    display: none;
+    &__category{
+      @extend %category;
+      
+    }
+    img{
+      @extend %image;
+    }
+    p{
+      font-size: 12px;
+      font-weight: 900;
+      @include respond(Large) {
+        font-size: 10px;
+      }
+      @include respond(Medium) {
+        font-size: 8px;
+      }
+    }
+  }
+}

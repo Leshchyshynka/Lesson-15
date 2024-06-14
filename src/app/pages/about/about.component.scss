@@ -1,0 +1,33 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/font";
+@import "../../shared/styles/media";
+@import "../../shared/styles/mixins";
+
+.header {
+  @extend %header;
+}
+
+.about {
+  @extend %container;
+  @include dispay(flex, space-between, nowrap);
+
+  &__text {
+    width: 58%;
+    
+    @include respond(Small) {
+        width: 100%;
+      }
+  }
+  &__img{
+    width: 38%;
+    background: url(../../../assets/about.png) no-repeat;
+    background-size: 100%;
+    
+    @include respond(Medium) {
+    margin-top: 80px;
+    }
+    @include respond(Small) {
+       display: none;
+      }
+  }
+}
